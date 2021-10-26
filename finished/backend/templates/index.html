@@ -1,0 +1,16 @@
+<button onclick="getCount()">click me</button>
+<p>
+    count: <span id="count">{{webCount}}</span>
+</p>
+
+<script>
+    function getCount() {
+        fetch('/backend')
+            .then(response => response.json())
+            .then(data => {
+                const count = data.count;
+                document.getElementById("count").innerText = count;
+            });
+    }
+    getCount()
+</script>
